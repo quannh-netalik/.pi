@@ -9,7 +9,7 @@ Runbook for rebuilding this Pi config on a new Mac (Apple Silicon, zsh). The rep
 3. Paste this prompt:
 
    ```
-   Install my Pi setup by following https://raw.githubusercontent.com/quannh-netalik/.pi/main/SETUP.md
+   Install my Pi setup by following https://raw.githubusercontent.com/quannh-netalik/.pi/master/docs/installation.md
    I approve the installs and shell-startup edits it lists. Ask before anything else.
    ```
 
@@ -17,7 +17,7 @@ The agent does the rest. It stops for the few steps that need you (your password
 
 ## For agents
 
-You are setting up this Pi config on the human's Mac. Fetch this file with `curl -fsSL <url>` if you don't have it locally yet; once step 2 is done, read `~/.pi/SETUP.md` instead.
+You are setting up this Pi config on the human's Mac. Fetch this file with `curl -fsSL <url>` if you don't have it locally yet; once step 2 is done, read `~/.pi/docs/installation.md` instead.
 
 Rules for the agent running this:
 
@@ -48,13 +48,13 @@ The Pi installer already created `~/.pi`, so check it out in place. Files the ch
 ```bash
 cd ~/.pi
 if [ ! -d .git ]; then
-  git init -q -b main
+  git init -q -b master
   git remote add origin https://github.com/quannh-netalik/.pi.git
-  git fetch -q origin main
-  git ls-tree -r --name-only origin/main | while IFS= read -r f; do
+  git fetch -q origin master
+  git ls-tree -r --name-only origin/master | while IFS= read -r f; do
     if [ -e "$f" ]; then mkdir -p "$HOME/.pi-backup/$(dirname "$f")" && cp -p "$f" "$HOME/.pi-backup/$f"; fi
   done
-  git checkout -q -f -B main --track origin/main
+  git checkout -q -f -B master --track origin/master
 fi
 git status --short             # expect no output
 ```
@@ -64,6 +64,8 @@ git status --short             # expect no output
 ```bash
 brew bundle --file ~/.pi/Brewfile
 ```
+
+If a cask fails with `It seems there is already an App at '/Applications/<App>.app'`, the app was installed by hand. It is already there: skip it and report it. The human can hand it to Homebrew later with `brew install --cask --adopt <cask>`. Formulae already installed by Homebrew are upgraded, not reinstalled.
 
 ### 4. Runtimes
 
@@ -76,18 +78,19 @@ brew bundle --file ~/.pi/Brewfile
   ```
 - **Bun** (ad-hoc scripts; edits `~/.zshrc`):
   ```bash
-  curl -fsSL https://bun.sh/install | bash
+  command -v bun >/dev/null || curl -fsSL https://bun.sh/install | bash
   ```
 - `uv` comes from the Brewfile.
 
 ### 5. Global CLIs
 
 ```bash
-npm install -g ctx7 @yaakapp/cli @colbymchenry/codegraph @dbx-app/mcp-server
+npm install -g ctx7 @yaakapp/cli @colbymchenry/codegraph
+[ -x ~/.dbx/bin/dbx-mcp ] || npm install -g @dbx-app/mcp-server
 curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh
 ```
 
-- `ctx7`: context7-cli skill. `yaak`: yaak-cli skill (the Yaak desktop app comes from the Brewfile cask). `codegraph`: required by `@henryqw/pi-codegraph`. `dbx-mcp-server`: DBX MCP server (the DBX desktop app itself comes from the Brewfile cask; it does not ship the MCP server). `moli`: moli-* skills (installs to `~/.local/bin`).
+- `ctx7`: context7-cli skill. `yaak`: yaak-cli skill (the Yaak desktop app comes from the Brewfile cask). `codegraph`: required by `@henryqw/pi-codegraph`. DBX MCP server: either `~/.dbx/bin/dbx-mcp` (installed from the DBX app) or the npm `dbx-mcp-server`; npm is only installed when the app binary is missing. `moli`: moli-* skills (installs to `~/.local/bin`).
 - `bsk` (browser-skill): follow <https://github.com/Tencent/BrowserSkill/blob/main/AGENT_INSTALL.md> for the CLI only. The browser extension is a human step (see Human steps after setup).
 
 ### 6. Pi packages
@@ -116,11 +119,15 @@ rtk bypass cat ~/.config/ponytail/config.json   # expect "defaultMode": "ultra"
 
 ### 8. MCP servers
 
-Pi's built-in MCP serves the tools. It reads `~/.pi/agent/mcp.json`, which is not in git (it can hold tokens). Re-add the two servers:
+Pi's built-in MCP serves the tools. It reads `~/.pi/agent/mcp.json`, which is not in git (it can hold tokens). `pi mcp add` replaces an existing entry, so only add servers that are missing:
 
 ```bash
-pi mcp add deepwiki --url https://mcp.deepwiki.com/mcp
-pi mcp add dbx -- dbx-mcp-server
+pi mcp list --json > /tmp/pi-mcp.json
+rg -q '"deepwiki"' /tmp/pi-mcp.json || pi mcp add deepwiki --url https://mcp.deepwiki.com/mcp
+if ! rg -q '"dbx"' /tmp/pi-mcp.json; then
+  if [ -x ~/.dbx/bin/dbx-mcp ]; then pi mcp add dbx -- ~/.dbx/bin/dbx-mcp
+  else pi mcp add dbx -- dbx-mcp-server; fi
+fi
 pi mcp list
 ```
 
@@ -129,10 +136,10 @@ Both should show `connected` with `codemode` exposure. `dbx` reads its connectio
 ### 9. Verify
 
 ```bash
-for t in pi fnm node npm bun uv gh rtk herdr sd jaq ast-grep fd dust hyperfine gitleaks rga atlassian-cli ctx7 yaak codegraph dbx-mcp-server moli bsk; do
+for t in pi fnm node npm bun uv gh rtk herdr sd jaq ast-grep fd dust hyperfine gitleaks rga atlassian-cli ctx7 yaak codegraph moli bsk; do
   printf '%-14s %s\n' "$t" "$(command -v "$t" || echo MISSING)"
 done
-pi mcp list
+pi mcp list                    # dbx and deepwiki: connected
 ```
 
 Then tell the human to restart `pi`, run `/login` again if the provider they want is missing, and check the startup output for `[rtk] ... extension disabled` or codegraph `prerequisites missing`. Finish by listing the human steps below.
