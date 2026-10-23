@@ -1,0 +1,33 @@
+{
+  "lastChangelogVersion": "1.4.0",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
+  "packages": [
+    "npm:billion-context",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@dietrichgebert/ponytail",
+    "npm:@henryqw/pi-codegraph",
+    "https://github.com/ayghri/i-have-adhd",
+    "npm:pi-atelier",
+    "npm:@ff-labs/pi-fff",
+    "git:github.com/obra/superpowers",
+    "npm:@juicesharp/rpiv-btw"
+  ],
+  "theme": "system/system",
+  "treeFilterMode": "default",
+  "defaultTools": [
+    "+grep",
+    "+find",
+    "+ls"
+  ],
+  "warnings": {
+    "anthropicExtraUsage": false
+  },
+  "modelThinkingLevels": {
+    "anthropic/claude-opus-5-5": "medium"
+  },
+  "hideThinkingBlock": true,
+  "enableSkillCommands": true,
+  "showHardwareCursor": false
+}
