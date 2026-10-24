@@ -19,6 +19,7 @@ What lives where on a machine set up from this repo, and how the harnesses fit t
     |-- docs/
     |   |-- overview.md         # this file
     |   |-- installation.md     # setup runbook for a new Mac
+    |   |-- skill-evaluation.md # which skill-pack skills are worth installing
     |-- agent/                  # what Pi reads
         |-- AGENTS.md           # global rules: workflow, git, safety
         |-- APPEND_SYSTEM.md    # tool usage + coding principles
@@ -42,7 +43,7 @@ Rule layering inside Pi, highest first:
 1. `agent/AGENTS.md`: global policy, safety and approvals.
 2. Project `AGENTS.md`: project conventions (never relaxes safety).
 3. `agent/APPEND_SYSTEM.md`: tool usage and coding principles.
-4. Skills and style packs (superpowers, mattpocock/skills, ponytail, i-have-adhd).
+4. Skills and style packs (superpowers, mattpocock/skills, ponytail, i-have-adhd). See [skill-evaluation.md](skill-evaluation.md) for which skills earn their place.
 
 ## Working with it
 

@@ -1,5 +1,3 @@
-tap "omar16100/atlassian-cli"
-
 brew "git"
 brew "gh"
 brew "uv"

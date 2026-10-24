@@ -22,6 +22,7 @@ Follow [docs/installation.md](docs/installation.md). Short version:
 | `Brewfile`               | Homebrew tools the agent rules depend on                                   |
 | `docs/overview.md`       | Where each harness's config lives and how they fit together                |
 | `docs/installation.md`   | Step-by-step setup runbook, written for an agent to run                    |
+| `docs/skill-evaluation.md` | Test results for superpowers, mattpocock and ponytail skills             |
 
 ## Daily sync
 
