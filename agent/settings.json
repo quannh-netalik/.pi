@@ -8,21 +8,33 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@juicesharp/rpiv-btw",
-    "npm:@dietrichgebert/ponytail",
+    {
+      "source": "npm:@dietrichgebert/ponytail",
+      "skills": ["ponytail-audit", "ponytail-debt", "ponytail-review"]
+    },
     "npm:@henryqw/pi-codegraph",
     "https://github.com/ayghri/i-have-adhd",
     "npm:pi-atelier",
     "npm:@ff-labs/pi-fff",
-    "git:github.com/obra/superpowers",
-    "git:github.com/mattpocock/skills"
+    {
+      "source": "git:github.com/mattpocock/skills",
+      "skills": [
+        "grilling",
+        "grill-with-docs",
+        "domain-modeling",
+        "improve-codebase-architecture",
+        "codebase-design",
+        "writing-for-agents",
+        "to-questionnaire",
+        "handoff",
+        "wait-what",
+        "retro"
+      ]
+    }
   ],
   "theme": "system/system",
   "treeFilterMode": "default",
-  "defaultTools": [
-    "+grep",
-    "+find",
-    "+ls"
-  ],
+  "defaultTools": ["+grep", "+find", "+ls"],
   "warnings": {
     "anthropicExtraUsage": false
   },
