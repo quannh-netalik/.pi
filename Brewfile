@@ -12,7 +12,6 @@ brew "sd"
 brew "jaq"
 brew "ast-grep"
 brew "fd"
-brew "dust"
 brew "hyperfine"
 brew "gitleaks"
 brew "ripgrep-all"  # rga

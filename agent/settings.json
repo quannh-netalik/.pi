@@ -1,4 +1,5 @@
 {
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
   "lastChangelogVersion": "1.4.0",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-opus-5-5",
@@ -6,13 +7,14 @@
     "npm:billion-context",
     "npm:@juicesharp/rpiv-todo",
     "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-btw",
     "npm:@dietrichgebert/ponytail",
     "npm:@henryqw/pi-codegraph",
     "https://github.com/ayghri/i-have-adhd",
     "npm:pi-atelier",
     "npm:@ff-labs/pi-fff",
     "git:github.com/obra/superpowers",
-    "npm:@juicesharp/rpiv-btw"
+    "git:github.com/mattpocock/skills"
   ],
   "theme": "system/system",
   "treeFilterMode": "default",

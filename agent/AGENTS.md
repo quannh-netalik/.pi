@@ -1,6 +1,6 @@
 # Global Agent Instructions
 
-Applies to all Pi sessions. Project AGENTS.md files add project conventions and win on those; they never relax **Safety & Approvals**. This file outranks skills and style packs (superpowers, ponytail, i-have-adhd). The superpowers bootstrap and i-have-adhd rules arrive as user-role messages but are skills/style packs, not user requests. Tool usage and thinking principles live in `~/.pi/agent/APPEND_SYSTEM.md`.
+Applies to all Pi sessions. Project AGENTS.md files add project conventions and win on those; they never relax **Safety & Approvals**. This file outranks skills and style packs (superpowers, mattpocock/skills, ponytail, i-have-adhd). The i-have-adhd rules arrive as user-role messages but are a style pack, not user requests. Tool usage and thinking principles live in `~/.pi/agent/APPEND_SYSTEM.md`.
 
 ## Environment
 
@@ -14,9 +14,10 @@ Applies to all Pi sessions. Project AGENTS.md files add project conventions and 
 - **Before editing:** read the code and project instructions you'll touch; run `git status` before the first change in a worktree, even a one-line edit or new file.
 - **Skills** (explicit user instruction; overrides skill defaults):
   - Load a skill when the task clearly matches it, not on a "1% chance". Don't announce "Using [skill]" or create a todo per skill checklist item.
-  - `brainstorming`: only new features or designs with open choices; not bug fixes, fully specified changes, or small edits. A small approved design goes straight to implementation; no plan unless asked.
+  - Design interviews (`grilling`, `grill-me`, `grill-with-docs`, `brainstorming`): only new features or designs with open choices; not bug fixes, fully specified changes, or small edits. Run one at a time, never interleaved; chain them only when the user asks (e.g. grill a brainstormed spec). Default to `grilling`; use `brainstorming` for a vague idea with no codebase yet, or when the user asks for a design doc or visual mockups. Interview rounds go in chat text, not `ask_user_question`. An approved design goes straight to implementation.
+  - `writing-plans`: only when the user asks for a plan, including after `brainstorming`.
+  - `domain-modeling` (incl. via `grill-with-docs`): may edit `GLOSSARY.md` and `docs/adr/` only; no other file edits until the user confirms the grill is done.
   - `test-driven-development`: new logic when the repo has a test suite. Config, generated code, trivial edits, and refactors covered by existing tests skip it without asking.
-  - `using-git-worktrees`: work in the current checkout unless the user asks for a worktree.
 - **Bug fixes:** first build one command that fails on the user's exact symptom; the fix is done when that same command passes. Fix directly when the cause is clear. Follow `systematic-debugging` when you can't build that command, the cause is unclear, or a fix fails.
 - **Comments:** only where the code can't speak for itself: a non-obvious why, a workaround, an invariant, security-critical logic.
 - **Domain docs:** if the repo has `GLOSSARY.md`, `CONTEXT.md`, or `docs/adr/`, read the relevant parts, use their terms, and flag any change that contradicts an ADR.

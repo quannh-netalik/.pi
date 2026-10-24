@@ -119,11 +119,10 @@ rtk bypass cat ~/.config/ponytail/config.json   # expect "defaultMode": "ultra"
 
 ### 8. MCP servers
 
-Pi's built-in MCP serves the tools. It reads `~/.pi/agent/mcp.json`, which is not in git (it can hold tokens). `pi mcp add` replaces an existing entry, so only add servers that are missing:
+Pi's built-in MCP serves the tools. It reads `~/.pi/agent/mcp.json`, which is not in git (it can hold tokens). `pi mcp add` replaces an existing entry, so only add the server if it is missing:
 
 ```bash
 pi mcp list --json > /tmp/pi-mcp.json
-rg -q '"deepwiki"' /tmp/pi-mcp.json || pi mcp add deepwiki --url https://mcp.deepwiki.com/mcp
 if ! rg -q '"dbx"' /tmp/pi-mcp.json; then
   if [ -x ~/.dbx/bin/dbx-mcp ]; then pi mcp add dbx -- ~/.dbx/bin/dbx-mcp
   else pi mcp add dbx -- dbx-mcp-server; fi
@@ -131,15 +130,15 @@ fi
 pi mcp list
 ```
 
-Both should show `connected` with `codemode` exposure. `dbx` reads its connections from the DBX app. It lists no databases until the human adds connections there.
+It should show `connected` with `codemode` exposure. `dbx` reads its connections from the DBX app. It lists no databases until the human adds connections there.
 
 ### 9. Verify
 
 ```bash
-for t in pi fnm node npm bun uv gh rtk herdr sd jaq ast-grep fd dust hyperfine gitleaks rga atlassian-cli ctx7 yaak codegraph moli bsk; do
+for t in pi fnm node npm bun uv gh rtk herdr sd jaq ast-grep fd hyperfine gitleaks rga atlassian-cli ctx7 yaak codegraph moli bsk; do
   printf '%-14s %s\n' "$t" "$(command -v "$t" || echo MISSING)"
 done
-pi mcp list                    # dbx and deepwiki: connected
+pi mcp list                    # dbx: connected
 ```
 
 Then tell the human to restart `pi`, run `/login` again if the provider they want is missing, and check the startup output for `[rtk] ... extension disabled` or codegraph `prerequisites missing`. Finish by listing the human steps below.
