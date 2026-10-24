@@ -42,7 +42,7 @@ Rule layering inside Pi, highest first:
 1. `agent/AGENTS.md`: global policy, safety and approvals.
 2. Project `AGENTS.md`: project conventions (never relaxes safety).
 3. `agent/APPEND_SYSTEM.md`: tool usage and coding principles.
-4. Skills and style packs (superpowers, ponytail, i-have-adhd).
+4. Skills and style packs (superpowers, mattpocock/skills, ponytail, i-have-adhd).
 
 ## Working with it
 

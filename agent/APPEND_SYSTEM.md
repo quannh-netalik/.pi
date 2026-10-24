@@ -47,7 +47,7 @@ Extends the harness tool rules above; policy and approvals live in `~/.pi/agent/
 ## Navigation
 
 - `.codegraph/` repo: `codegraph_explore` first for how/flow/callers/impact. Exact string, key, known file → `grep`/`read`.
-- File contents → `read` (`offset`/`limit`), not `cat`/`head`/`sed`; `tail -n N` ok for file end. Search/filter → `rg`, never `grep`, pipes too.
+- File contents → `read` (`offset`/`limit`), not `cat`/`head`/`sed`; `tail -n N` ok for file end. Search/filter → `rg`, never shell `grep`, pipes too.
 - One purpose per bash call: don't chain reads/listings/searches onto another command (`git status; jaq .scripts package.json`). Separate calls, parallel if independent.
 - List → `ls` tool, not shell `ls`/`find`. Recursive → `find` tool, `path: 'dir/**'`, `pattern: ''`; trust it.
 - PDF/DOCX/ODT/EPUB/archives → `rga`. XLSX/PPTX → other extractor (rga can't). None → say so.
