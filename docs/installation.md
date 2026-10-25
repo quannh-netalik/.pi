@@ -135,7 +135,7 @@ It should show `connected` with `codemode` exposure. `dbx` reads its connections
 ### 9. Verify
 
 ```bash
-for t in pi fnm node npm bun uv gh rtk herdr sd jaq ast-grep fd hyperfine gitleaks rga atlassian-cli ctx7 yaak codegraph moli bsk; do
+for t in pi fnm node npm bun uv gh rtk herdr sd ast-grep gitleaks pdftotext atlassian-cli ctx7 yaak codegraph moli bsk; do
   printf '%-14s %s\n' "$t" "$(command -v "$t" || echo MISSING)"
 done
 pi mcp list                    # dbx: connected

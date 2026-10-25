@@ -13,8 +13,7 @@ Follow [docs/installation.md](docs/installation.md). Short version:
 
 | Path                     | What                                                                       |
 | ------------------------ | -------------------------------------------------------------------------- |
-| `agent/AGENTS.md`        | Global agent rules: workflow, git, safety and approvals                    |
-| `agent/APPEND_SYSTEM.md` | Tool usage rules and coding principles appended to the system prompt       |
+| `agent/AGENTS.md`        | Global agent rules: coding principles, workflow, tooling, git, safety     |
 | `agent/settings.json`    | Pi settings: default model, Pi packages, enabled tools                     |
 | `agent/extensions/`      | Local extensions (`rtk.ts` compresses bash output)                         |
 | `agent/skills/`          | Local skills: atlassian-cli, browser-skill, context7-cli, moli-*, yaak-cli |
@@ -22,7 +21,7 @@ Follow [docs/installation.md](docs/installation.md). Short version:
 | `Brewfile`               | Homebrew tools the agent rules depend on                                   |
 | `docs/overview.md`       | Where each harness's config lives and how they fit together                |
 | `docs/installation.md`   | Step-by-step setup runbook, written for an agent to run                    |
-| `docs/skill-evaluation.md` | Test results for superpowers, mattpocock and ponytail skills             |
+| `docs/skill-evaluation.md` | Test results for superpowers, mattpocock and ponytail skills           |
 
 ## Daily sync
 

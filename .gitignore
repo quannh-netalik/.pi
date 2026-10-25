@@ -9,7 +9,6 @@
 !/agent/
 /agent/*
 !/agent/AGENTS.md
-!/agent/APPEND_SYSTEM.md
 !/agent/settings.json
 !/agent/i-have-adhd.json
 !/agent/pi-fff.json

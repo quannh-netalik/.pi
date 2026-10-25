@@ -109,4 +109,4 @@ Most run only when you type them.
 1. **Superpowers:** remove the package entry from `agent/settings.json`. That also turns off its extension and bootstrap.
 2. **mattpocock/skills:** `grilling`, plus whichever optional skills you want. Install `prototype` as a local copy under `agent/skills/prototype/` with `disable-model-invocation: true`.
 3. **Ponytail:** `{"source": "npm:@dietrichgebert/ponytail", "skills": ["ponytail-review"]}`, adding `ponytail-audit` and `ponytail-debt` if wanted. Keep ultra mode on.
-4. **Rules:** remove routing to the dropped skills from `agent/AGENTS.md` and `agent/APPEND_SYSTEM.md`.
+4. **Rules:** remove routing to the dropped skills from `agent/AGENTS.md` (done; `APPEND_SYSTEM.md` was merged into it).

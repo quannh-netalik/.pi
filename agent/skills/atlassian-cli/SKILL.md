@@ -37,7 +37,7 @@ atlassian-cli <svc> <cmd> <sub> --help
 
 ## Output
 
-- Use `-f json` and pipe to `jaq` for anything you parse. Default `table` is for humans.
+- Use `-f json` and pipe to `jq` for anything you parse. Default `table` is for humans.
 - `-f markdown` for readable page bodies / issue views.
 - `--envelope` wraps lists as `{"data": [...], "count": N}`.
 - `--debug` logs requests/responses to stderr (no credentials) when a call fails.
@@ -117,7 +117,7 @@ Confluence page create/update:
   afterwards. For macros, panels, links, mentions: read
   [Storage format](references/confluence-storage-format.md).
 - `page create --space` takes the numeric space **ID**, not the key:
-  `atlassian-cli confluence space get MFS -f json | jaq -r '.results[0].id'`.
+  `atlassian-cli confluence space get MFS -f json | jq -r '.results[0].id'`.
 - To edit an existing page: fetch the storage body (`page get <ID> --body-only > "$f"`,
   never via `-f markdown`), change only what was asked, and pass `--message "<why>"`.
   `update` does not detect concurrent edits: re-check `.version.number`
@@ -147,7 +147,7 @@ user's confirmation is the only safeguard.
   (shape depends on field type).
 - A non-2xx `api` response still prints the body and exits 1.
 - Warnings (e.g. "more match this query. Raise --limit, or use --limit 0") go to
-  stderr: don't merge `2>&1` when piping JSON to `jaq`.
+  stderr: don't merge `2>&1` when piping JSON to `jq`.
 
 ## Read details only when needed
 
