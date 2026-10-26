@@ -10,7 +10,6 @@
 /agent/*
 !/agent/AGENTS.md
 !/agent/settings.json
-!/agent/i-have-adhd.json
 !/agent/pi-fff.json
 !/agent/pi-atelier.json
 !/agent/extensions/

@@ -17,7 +17,7 @@ Follow [docs/installation.md](docs/installation.md). Short version:
 | `agent/settings.json`    | Pi settings: default model, Pi packages, enabled tools                     |
 | `agent/extensions/`      | Local extensions (`rtk.ts` compresses bash output)                         |
 | `agent/skills/`          | Local skills: atlassian-cli, browser-skill, context7-cli, moli-*, yaak-cli |
-| `agent/*.json`           | Settings for individual packages (i-have-adhd, pi-fff, pi-atelier)         |
+| `agent/*.json`           | Settings for individual packages (pi-fff, pi-atelier)                      |
 | `Brewfile`               | Homebrew tools the agent rules depend on                                   |
 | `docs/overview.md`       | Where each harness's config lives and how they fit together                |
 | `docs/installation.md`   | Step-by-step setup runbook, written for an agent to run                    |

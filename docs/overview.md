@@ -38,9 +38,9 @@ What lives where on a machine set up from this repo, and how the harnesses fit t
 
 Rule layering inside Pi, highest first:
 
-1. `agent/AGENTS.md`: coding principles, workflow, tooling, git, safety and approvals. One file; the Safety section outranks everything below.
+1. `agent/AGENTS.md`: coding principles, workflow, tooling, git, safety and approvals, communication. One file; the Safety section outranks everything below.
 2. Project `AGENTS.md`: project conventions and tool preferences (never relaxes safety).
-3. Skills and style packs (mattpocock/skills, ponytail, i-have-adhd). See [skill-evaluation.md](skill-evaluation.md) for which skills earn their place.
+3. Skills and style packs (mattpocock/skills, ponytail). See [skill-evaluation.md](skill-evaluation.md) for which skills earn their place.
 
 ## Working with it
 
