@@ -92,7 +92,7 @@ Most run only when you type them.
 
 ## Other findings
 
-- **Ponytail ultra mode** (the extension, not a skill): composite score 4.74 vs 4.41 with it off, at the same cost. Most of the gain came from one scope-creep task, where it stopped 5 of 6 runs from building an unasked-for config registry. Keep it on.
+- **Ponytail ultra mode** (the extension, not a skill): composite score 4.74 vs 4.41 with it off, at the same cost. Most of the gain came from one scope-creep task, where it stopped 5 of 6 runs from building an unasked-for config registry. Update 2026-10-26: on 5 well-specified festiverse-be tasks (n=1 per arm), ultra came last in all 10 blind rankings: 33% fewer lines, mostly tests, and more process slips. The extension is now off (`"extensions": []`); see `reports/ponytail-ultra-vs-off.md`.
 - **Superpowers bundle as shipped** (extension + bootstrap + all 15 skills): won only the vague-idea test (8.5). It never loaded the debugging, TDD or verification skills by itself, and cost 1.1–2.1× more. Don't install it.
 - **Safety:** no hard fails in round 4's 170 runs. Nothing weakened tests, committed or pushed without permission, or read secrets.
 - **Vague ideas** are the one place where any skill clearly helped. With no skill the agent built the tool straight away without asking anything (4/10). `/skill:grilling` or "grill me" gives 10/10.
@@ -108,5 +108,5 @@ Most run only when you type them.
 
 1. **Superpowers:** remove the package entry from `agent/settings.json`. That also turns off its extension and bootstrap.
 2. **mattpocock/skills:** `grilling`, plus whichever optional skills you want. Install `prototype` as a local copy under `agent/skills/prototype/` with `disable-model-invocation: true`.
-3. **Ponytail:** `{"source": "npm:@dietrichgebert/ponytail", "skills": ["ponytail-review"]}`, adding `ponytail-audit` and `ponytail-debt` if wanted. Keep ultra mode on.
+3. **Ponytail:** `{"source": "npm:@dietrichgebert/ponytail", "skills": ["ponytail-review"]}`, adding `ponytail-audit` and `ponytail-debt` if wanted. Mode extension off: `"extensions": []`.
 4. **Rules:** remove routing to the dropped skills from `agent/AGENTS.md` (done; `APPEND_SYSTEM.md` was merged into it).

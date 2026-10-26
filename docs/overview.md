@@ -8,7 +8,6 @@ What lives where on a machine set up from this repo, and how the harnesses fit t
 ~/                              # <root>
 |-- .config/                    # tool config outside Pi (not in this repo)
 |   |-- herdr/                  # herdr: terminal workspace that runs agent sessions
-|   |-- ponytail/config.json    # ponytail default level ("ultra")
 |   |-- billion-context/        # context-compression proxy config
 |   |-- atlassian-cli/          # Jira/Confluence profiles (credentials)
 |   |-- context7/, gh/, git/    # CLI logins and git config

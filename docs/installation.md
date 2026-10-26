@@ -109,14 +109,6 @@ herdr integration install pi   # writes agent/extensions/herdr-agent-state.ts (g
 rtk --version                  # agent/extensions/rtk.ts needs >= 0.23.0
 ```
 
-Set ponytail's default level to `ultra` (config lives outside this repo):
-
-```bash
-mkdir -p ~/.config/ponytail
-[ -f ~/.config/ponytail/config.json ] || printf '{\n  "defaultMode": "ultra"\n}\n' > ~/.config/ponytail/config.json
-rtk bypass cat ~/.config/ponytail/config.json   # expect "defaultMode": "ultra"
-```
-
 ### 8. MCP servers
 
 Pi's built-in MCP serves the tools. It reads `~/.pi/agent/mcp.json`, which is not in git (it can hold tokens). `pi mcp add` replaces an existing entry, so only add the server if it is missing:
