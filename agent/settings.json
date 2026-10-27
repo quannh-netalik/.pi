@@ -35,7 +35,10 @@
         "retro"
       ]
     },
-    "git:github.com/ayghri/i-have-adhd@1ecea1993b7fce257ffbd686c070948b5e07eda6",
+    {
+      "source": "git:github.com/ayghri/i-have-adhd",
+      "skills": []
+    },
     {
       "source": "git:github.com/kepano/obsidian-skills",
       "skills": [
@@ -45,7 +48,7 @@
     },
     {
       "source": "git:github.com/JuliusBrussee/caveman@9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
-      "skills": ["skills/caveman", "skills/ultracave"],
+      "skills": ["skills/ultracave"],
       "extensions": [],
       "prompts": [],
       "themes": []
