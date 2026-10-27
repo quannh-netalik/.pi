@@ -11,11 +11,7 @@
     {
       "source": "npm:@dietrichgebert/ponytail",
       "extensions": [],
-      "skills": [
-        "ponytail-audit",
-        "ponytail-debt",
-        "ponytail-review"
-      ]
+      "skills": ["ponytail-audit", "ponytail-debt", "ponytail-review"]
     },
     "npm:@henryqw/pi-codegraph",
     "npm:pi-atelier",
@@ -41,26 +37,16 @@
     },
     {
       "source": "git:github.com/kepano/obsidian-skills",
-      "skills": [
-        "obsidian-cli",
-        "obsidian-markdown"
-      ]
+      "skills": ["obsidian-cli", "obsidian-markdown"]
     },
     {
-      "source": "git:github.com/JuliusBrussee/caveman@9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
-      "skills": ["skills/ultracave"],
-      "extensions": [],
-      "prompts": [],
-      "themes": []
+      "source": "git:github.com/JuliusBrussee/caveman",
+      "skills": ["skills/ultracave"]
     }
   ],
   "theme": "system/system",
   "treeFilterMode": "default",
-  "defaultTools": [
-    "+grep",
-    "+find",
-    "+ls"
-  ],
+  "defaultTools": ["+grep", "+find", "+ls"],
   "warnings": {
     "anthropicExtraUsage": false
   },
